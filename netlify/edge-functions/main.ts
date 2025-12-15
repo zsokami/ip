@@ -26,6 +26,12 @@ const ROUTES: Route[] = [
     },
   },
   {
+    pattern: new URLPattern({ pathname: '/generate_204' }),
+    handler() {
+      return new Response(null, { status: 204 })
+    },
+  },
+  {
     pattern: new URLPattern({ pathname: '/down/:n(\\d+):unit([km])?' }),
     handler(_req, { pathname: { groups } }) {
       let n = Number(groups.n) * (!groups.unit ? 1 : groups.unit === 'k' ? 1024 : 1024 * 1024)
