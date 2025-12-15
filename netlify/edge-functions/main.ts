@@ -22,7 +22,7 @@ const ROUTES: Route[] = [
   {
     pattern: new URLPattern({ pathname: '/geo' }),
     handler(_req, _match, { ip, geo, server }) {
-      return Response.json({ ip, ...geo, serverregion: server.region })
+      return Response.json({ ip, ...geo, server })
     },
   },
   {
